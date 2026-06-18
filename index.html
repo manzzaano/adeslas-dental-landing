@@ -140,9 +140,16 @@
         .hero {
             position: relative; min-height: calc(100vh - var(--header-h, 68px));
             display: flex; align-items: center;
-            padding: 80px 64px;
+            padding: 64px;
             background: url('hero-bg.jpg') center 20% / cover no-repeat;
             overflow: hidden;
+        }
+        @media (min-width: 1025px) {
+            .hero { height: calc(100vh - var(--header-h)); min-height: 0; }
+            .hero__content { gap: 16px; }
+            .hero__features { margin: 2px 0 4px; }
+            .hero__cta-btn { margin-top: 8px; }
+            .hero__trust { margin-top: 8px; }
         }
         .hero::before {
             content: ''; position: absolute; inset: 0;
