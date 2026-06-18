@@ -1072,7 +1072,7 @@
                         <span>¿Puedo asegurar a toda mi familia?</span>
                         <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
-                    <div class="faq-item__answer"><p>Sí. El precio es de 10 €/mes por persona para 1 o 2 asegurados, y a partir del tercer asegurado baja a 5 €/mes por persona. Cuantos más miembros de la familia aseguréis, más ahorráis.</p></div>
+                    <div class="faq-item__answer"><p>Sí. 1 o 2 asegurados pagan 10 €/mes cada uno. A partir de 3 asegurados, todos pasan a pagar 5 €/mes cada uno. Por ejemplo: 4 familiares pagan 20 €/mes en total — Cuantos más seáis, más ahorráis.</p></div>
                 </div>
             </div>
         </div>
@@ -1190,7 +1190,7 @@
                 if (!n || n < 1) { priceCalculator.classList.remove('visible'); return; }
                 let total = 0, perPerson = 0;
                 if (n <= 2) { total = n * 10; perPerson = 10; }
-                else { total = 20 + (n - 2) * 5; perPerson = total / n; }
+                else { total = n * 5; perPerson = 5; }
                 pricePerPerson.textContent = perPerson.toFixed(2).replace('.', ',') + ' €';
                 priceCount.textContent = n + ' ' + (n === 1 ? 'persona' : 'personas');
                 priceTotal.textContent = total + ' €';
