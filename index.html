@@ -15,8 +15,8 @@
             --color-primary: #0057A8;
             --color-primary-dark: #003D7A;
             --color-primary-light: #E8F0FE;
-            --color-teal: #00A896;
-            --color-accent: #00A896;
+--color-brand: #009DDD;
+            --color-brand-dark: #0077B3;
             --color-secondary: #5C6B7A;
             --color-bg: #F8FAFC;
             --color-white: #FFFFFF;
@@ -109,22 +109,11 @@
             position: sticky; top: 0; z-index: 100;
             animation: fadeInDown 0.5s ease;
         }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-icon {
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
-            border-radius: 10px; display: flex; align-items: center;
-            justify-content: center; color: white; font-size: 18px;
-            font-weight: 800; font-family: var(--font-heading);
-        }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-        .logo__brand {
-            font-size: 16px; font-weight: 700; color: var(--color-dark);
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo__svg { height: 36px; width: auto; display: block; flex-shrink: 0; }
+        .logo__tagline {
+            font-size: 15px; font-weight: 700; color: var(--color-dark);
             font-family: var(--font-heading); letter-spacing: -0.3px;
-        }
-        .logo__accent {
-            font-size: 12px; font-weight: 600; color: var(--color-teal);
-            letter-spacing: 1px; text-transform: uppercase;
         }
         .header-right { display: flex; align-items: center; gap: 24px; }
         .header-phone {
@@ -134,7 +123,7 @@
             border-radius: var(--radius-sm); transition: background 0.2s;
         }
         .header-phone:hover { background: var(--color-primary-light); }
-        .header-phone svg { color: var(--color-teal); flex-shrink: 0; }
+        .header-phone svg { color: var(--color-brand); flex-shrink: 0; }
         .header-cta {
             padding: 10px 22px;
             background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
@@ -165,7 +154,7 @@
         .hero::after {
             content: ''; position: absolute; top: -50%; right: -20%;
             width: 800px; height: 800px;
-            background: radial-gradient(circle,rgba(0,168,150,0.08) 0%,transparent 70%);
+            background: radial-gradient(circle,rgba(0,157,221,0.08) 0%,transparent 70%);
             pointer-events: none; z-index: 1;
         }
         .hero__content {
@@ -177,10 +166,10 @@
         }
         .hero__badge {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 16px; background: rgba(0,168,150,0.12);
-            border: 1px solid rgba(0,168,150,0.25);
+            padding: 8px 16px; background: rgba(0,157,221,0.12);
+            border: 1px solid rgba(0,157,221,0.25);
             border-radius: 100px; font-size: 12px; font-weight: 600;
-            color: var(--color-teal);
+            color: var(--color-brand);
             text-transform: uppercase; letter-spacing: 0.5px;
         }
         .hero__badge svg { flex-shrink: 0; }
@@ -189,7 +178,7 @@
             color: var(--color-white); letter-spacing: -1.5px;
             text-shadow: 0 4px 32px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.2);
         }
-        .hero h1 em { font-style: normal; color: var(--color-teal); }
+        .hero h1 em { font-style: normal; color: var(--color-brand); }
         .hero__subtitle {
             font-size: 17px; color: rgba(255,255,255,0.92);
             line-height: 1.75; max-width: 560px;
@@ -208,7 +197,7 @@
             background: rgba(255,255,255,0.14);
             border-color: rgba(255,255,255,0.35); transform: translateY(-2px);
         }
-        .hero__feature svg { flex-shrink: 0; color: var(--color-teal); }
+        .hero__feature svg { flex-shrink: 0; color: var(--color-brand); }
 
         .hero__cta-btn {
             margin-top: 12px; padding: 18px 40px;
@@ -238,7 +227,7 @@
             transition: color 0.3s;
         }
         .form-progress__step.active { color: var(--color-primary); }
-        .form-progress__step.completed { color: var(--color-teal); }
+        .form-progress__step.completed { color: var(--color-brand); }
         .form-progress__dot {
             width: 28px; height: 28px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
@@ -251,13 +240,13 @@
             box-shadow: 0 0 0 4px rgba(0,87,168,0.15);
         }
         .form-progress__step.completed .form-progress__dot {
-            background: var(--color-teal); color: white;
+            background: var(--color-brand); color: white;
         }
         .form-progress__line {
             width: 40px; height: 2px; background: var(--color-border);
             border-radius: 2px; transition: background 0.4s;
         }
-        .form-progress__line.completed { background: var(--color-teal); }
+        .form-progress__line.completed { background: var(--color-brand); }
 
         #leadForm { display: flex; flex-direction: column; gap: 16px; }
         .form-step { display: flex; flex-direction: column; gap: 16px; }
@@ -297,7 +286,7 @@
         .input-feedback.visible { display: block; }
 
         .price-calculator {
-            background: linear-gradient(135deg,var(--color-primary-light),rgba(0,168,150,0.06));
+            background: linear-gradient(135deg,var(--color-primary-light),rgba(0,157,221,0.06));
             border: 1px solid rgba(0,87,168,0.1);
             border-radius: var(--radius-md); padding: 24px; margin-top: 4px;
             display: none;
@@ -321,10 +310,10 @@
         .price-calculator__saving {
             display: inline-flex; align-items: center; gap: 6px;
             margin-top: 12px; padding: 8px 14px;
-            background: rgba(0,168,150,0.08);
-            border: 1px solid rgba(0,168,150,0.2);
+            background: rgba(0,157,221,0.08);
+            border: 1px solid rgba(0,157,221,0.2);
             border-radius: var(--radius-sm); font-size: 13px;
-            font-weight: 600; color: var(--color-teal);
+            font-weight: 600; color: var(--color-brand);
         }
 
         .btn {
@@ -353,14 +342,14 @@
         .btn--secondary:hover {
             border-color: var(--color-primary); background: var(--color-primary-light);
         }
-        .btn--teal {
-            background: linear-gradient(135deg,var(--color-teal),#008573);
+        .btn--brand {
+            background: linear-gradient(135deg,var(--color-brand),var(--color-brand-dark));
             color: var(--color-white);
-            box-shadow: 0 8px 24px rgba(0,168,150,0.3);
+            box-shadow: 0 8px 24px rgba(0,157,221,0.3);
         }
-        .btn--teal:hover {
+        .btn--brand:hover {
             transform: translateY(-2px);
-            box-shadow: 0 16px 48px rgba(0,168,150,0.35);
+            box-shadow: 0 16px 48px rgba(0,157,221,0.35);
         }
         .btn--block { width: 100%; }
 
@@ -376,19 +365,19 @@
             border-radius: 20px;
             color: rgba(255,255,255,0.80);
         }
-        .hero__trust-badge svg { color: var(--color-teal); flex-shrink: 0; }
+        .hero__trust-badge svg { color: var(--color-brand); flex-shrink: 0; }
 
         .hero__success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; }
         .hero__success.visible { display: flex; animation: scaleIn 0.5s cubic-bezier(0.23,1,0.32,1); }
         .hero__success-icon {
             width: 72px; height: 72px; border-radius: 50%;
-            background: linear-gradient(135deg,rgba(0,168,150,0.15),rgba(0,168,150,0.06));
-            border: 2px solid rgba(0,168,150,0.25);
+            background: linear-gradient(135deg,rgba(0,157,221,0.15),rgba(0,157,221,0.06));
+            border: 2px solid rgba(0,157,221,0.25);
             display: flex; align-items: center; justify-content: center;
             margin-bottom: 20px;
         }
-        .hero__success-icon svg { width: 36px; height: 36px; color: var(--color-teal); }
-        .hero__success h3 { font-size: 24px; font-weight: 700; color: var(--color-teal); margin-bottom: 8px; }
+        .hero__success-icon svg { width: 36px; height: 36px; color: var(--color-brand); }
+        .hero__success h3 { font-size: 24px; font-weight: 700; color: var(--color-brand); margin-bottom: 8px; }
         .hero__success p { font-size: 15px; color: var(--color-secondary); line-height: 1.7; }
         #leadForm.hidden { display: none; }
 
@@ -428,14 +417,14 @@
             font-weight: 700; margin-bottom: 8px; color: var(--color-dark);
         }
         .coverage-card__items { list-style: none; font-size: 14px; color: var(--color-secondary); line-height: 2; }
-        .coverage-card__items li::before { content: '✓ '; color: var(--color-teal); font-weight: 700; }
+        .coverage-card__items li::before { content: '✓ '; color: var(--color-brand); font-weight: 700; }
         .coverage-card__count {
             display: inline-flex; align-items: center; gap: 4px;
             margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--color-primary);
         }
 
         .how-it-works { padding: 100px 0; background: var(--color-dark); color: var(--color-white); }
-        .how-it-works .section-label { color: var(--color-teal); }
+        .how-it-works .section-label { color: var(--color-brand); }
         .how-it-works .section-title { color: var(--color-white); }
         .how-it-works .section-sub { color: rgba(255,255,255,0.6); }
         .steps {
@@ -544,7 +533,7 @@
         .final-cta::after {
             content: ''; position: absolute; bottom: -200px; left: -200px;
             width: 500px; height: 500px;
-            background: radial-gradient(circle,rgba(0,168,150,0.08) 0%,transparent 70%);
+            background: radial-gradient(circle,rgba(0,157,221,0.08) 0%,transparent 70%);
             pointer-events: none;
         }
         .final-cta__inner { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; }
@@ -556,7 +545,7 @@
         .final-cta__form input::placeholder { color: rgba(255,255,255,0.4); }
         .final-cta__form input:focus { background: rgba(255,255,255,0.12); border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(0,87,168,0.12); }
         .final-cta__trust { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.4); }
-        .final-cta__trust svg { color: var(--color-teal); flex-shrink: 0; }
+        .final-cta__trust svg { color: var(--color-brand); flex-shrink: 0; }
 
         footer { padding: 48px 0; background: #0A1118; border-top: 1px solid rgba(255,255,255,0.04); }
         .footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
@@ -564,7 +553,7 @@
         .footer__brand-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.8); font-family: var(--font-heading); }
         .footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
         .footer__links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-        .footer__links a:hover { color: var(--color-teal); }
+        .footer__links a:hover { color: var(--color-brand); }
         .footer__copy { font-size: 12px; color: rgba(255,255,255,0.25); }
 
         .whatsapp-btn {
@@ -599,7 +588,7 @@
             line-height: 1.6; max-width: 720px;
         }
         .cookie-banner a {
-            color: var(--color-teal); text-decoration: none;
+            color: var(--color-brand); text-decoration: none;
         }
         .cookie-banner a:hover { text-decoration: underline; }
         .cookie-banner__actions {
@@ -761,11 +750,11 @@
 <body>
     <header>
         <a href="#" class="logo">
-            <div class="logo-icon">A</div>
-            <div class="logo-text">
-                <span class="logo__brand">Adeslas</span>
-                <span class="logo__accent">Dental Max</span>
-            </div>
+            <svg class="logo__svg" width="85" height="36" viewBox="0 0 115 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110.666 0H3.78587C1.40689 6.70608 0 15.0095 0 24C0 32.9905 1.40689 41.2939 3.78587 48H110.665C113.044 41.2939 114.451 32.9905 114.451 24C114.451 15.0095 113.044 6.70608 110.665 0H110.666Z" fill="#009DDD"/>
+                <path d="M21.8129 33.1972V32.5561C21.1127 32.5561 20.7659 32.0031 20.7659 31.3042C20.7659 30.9837 20.8211 30.3413 20.9669 29.8461L21.7564 27.2819H28.603L29.625 29.9919C29.8273 30.5765 29.9718 31.0717 29.9718 31.4763C29.9718 32.1476 29.625 32.5561 29.0129 32.5561V33.1972C30.006 33.1972 30.9663 33.0829 31.958 33.0829C32.9498 33.0829 33.9114 33.1972 34.8979 33.1972V32.5561C33.8523 32.4418 33.5896 31.4763 32.5689 28.8845L26.186 12.5049H25.8352L19.627 28.1857C19.074 29.586 17.9666 32.3236 16.8027 32.5561V33.1972C17.6435 33.1972 18.4618 33.0829 19.3052 33.0829C20.1485 33.0829 20.9656 33.1972 21.8129 33.1972ZM25.1351 18.2165L28.0802 25.8842H22.3081L25.1351 18.2165ZM40.4336 33.4901C41.4267 33.4901 41.9823 33.3443 42.4749 33.0514L44.1656 31.5683C44.6319 32.4418 45.449 33.1696 46.3817 33.4901C46.9347 32.7899 48.0145 32.0031 49.0339 31.3344L48.5978 30.897C48.3928 31.0139 48.1892 31.1308 47.7794 31.1308C47.1094 31.1308 46.8769 30.5449 46.8769 29.4967V22.2428C46.8769 18.0431 46.9951 14.7788 46.9951 12.5062H46.4119C45.6815 13.322 43.9331 14.139 42.5052 14.516V15.0993C43.2618 15.2175 43.9922 15.6248 43.9922 17.2563V21.5689C42.9978 21.1039 42.0086 20.8412 41.0194 20.8412C37.2861 20.8412 34.5459 23.1715 34.5459 27.2241C34.5459 30.7512 36.8815 33.4914 40.4336 33.4914V33.4901ZM40.9301 22.005C43.2316 22.005 44.05 23.1702 44.05 25.9394V30.7197C43.2907 31.4487 42.5341 31.7417 41.6881 31.7417C39.1541 31.7417 37.696 28.8845 37.696 26.4648C37.696 24.4826 38.63 22.005 40.9301 22.005ZM55.7386 33.4901C56.9616 33.4901 57.9219 33.2576 58.5064 33.0514L60.0802 30.7512L59.7872 30.4004C58.9137 31.0402 57.8063 31.3344 56.7291 31.3344C53.7275 31.3344 51.6559 28.7111 51.8595 25.8251H60.3416C60.3114 22.7354 57.9784 20.8385 54.9767 20.8385C51.0122 20.8385 49.0313 24.4234 49.0313 27.1637C49.0313 29.9039 51.0109 33.4901 55.736 33.4901H55.7386ZM54.4841 21.8316C56.3784 21.8316 57.1954 22.9377 57.1954 24.6573H51.9475C51.891 23.1702 52.9104 21.8316 54.4854 21.8316H54.4841ZM61.5672 24.6888C61.5672 22.005 63.7833 20.8399 66.1701 20.8399C67.4247 20.8399 68.649 21.2208 69.8746 21.5978L69.755 24.2211H68.8237C68.5031 22.7367 67.6861 22.005 66.1123 22.005C64.9472 22.005 64.1012 22.6461 64.1012 23.8441C64.1012 26.6408 69.8982 25.5913 69.8982 29.586C69.8982 32.3538 67.7728 33.4901 65.265 33.4901C64.2457 33.4901 62.76 33.1972 61.8877 32.6454L61.713 29.9354H62.7902C63.0818 31.3358 64.2194 32.3262 65.5304 32.3262C66.6076 32.3262 67.5705 31.655 67.5705 30.52C67.5705 28.3919 61.5659 28.8293 61.5659 24.6901L61.5672 24.6888ZM70.8046 14.9535V14.2835C71.8279 14.139 74.1268 13.322 74.8847 12.5049H75.4693C75.4391 14.0773 75.3537 16.9358 75.3537 19.6169V30.9259C75.3537 31.9151 75.5849 32.4405 76.4913 32.585V33.1696C75.6164 33.1696 74.7442 33.0816 73.868 33.0816C72.9918 33.0816 72.2076 33.1696 71.3642 33.1696V32.585C72.2969 32.4405 72.5281 31.9151 72.5281 31.274V21.8303C72.5281 20.1397 72.3836 17.9538 72.2969 16.8451C72.2378 15.651 71.7412 14.9522 70.8072 14.9522L70.8046 14.9535ZM81.0076 33.4901C82.2883 33.4901 83.221 32.7899 84.2128 32.0622C84.5609 32.7899 85.4371 33.3443 86.5458 33.4901L88.7277 31.7417L88.2916 31.3042C88.0893 31.3633 87.8292 31.4185 87.6821 31.4185C87.0384 31.4185 86.8059 31.0389 86.8059 29.699V28.6809C86.8361 27.0192 86.9215 25.5046 86.9215 24.4563C86.9215 21.5387 84.7067 20.8399 82.1123 20.8399C80.7435 20.8399 79.577 21.0159 78.3527 21.3653V24.1344H79.0555C79.7846 23.0533 80.5136 22.587 81.9416 22.587C83.9225 22.587 84.0368 24.3381 84.0368 25.9105C83.6322 25.9105 83.1343 25.8251 82.668 25.8251C80.0171 25.8251 77.0719 27.0192 77.0719 30.1088C77.0719 32.2658 79.0253 33.4901 81.0089 33.4901H81.0076ZM82.6378 26.8156C83.1645 26.8156 83.7162 26.9036 84.0355 26.9601L84.1248 31.2438C83.6585 31.538 83.0752 31.7417 82.1714 31.7417C80.9471 31.7417 79.8989 30.7197 79.8989 29.3824C79.8989 27.5144 81.2979 26.8142 82.6391 26.8142L82.6378 26.8156ZM89.3438 24.6888C89.3438 22.005 91.5573 20.8399 93.9455 20.8399C95.1987 20.8399 96.4256 21.2208 97.646 21.5978L97.533 24.2211H96.599C96.2785 22.7367 95.4614 22.005 93.8877 22.005C92.7238 22.005 91.8752 22.6461 91.8752 23.8441C91.8752 26.6408 97.6762 25.5913 97.6762 29.586C97.6762 32.3538 95.5494 33.4901 93.0417 33.4901C92.0223 33.4901 90.5353 33.1972 89.6617 32.6454L89.487 29.9354H90.5642C90.8558 31.3358 91.9908 32.3262 93.3031 32.3262C94.3829 32.3262 95.3445 31.655 95.3445 30.52C95.3445 28.3919 89.3412 28.8293 89.3412 24.6901L89.3438 24.6888Z" fill="white"/>
+            </svg>
+            <span class="logo__tagline">Dental Max</span>
         </a>
         <div class="header-right">
             <a href="tel:900000000" class="header-phone">
@@ -918,7 +907,7 @@
         <div class="container">
             <div class="trust-bar__inner">
                 <span class="trust-bar__item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     <strong>+50.000</strong> familias confían en Adeslas Dental Max
                 </span>
                 <span class="trust-bar__item">
@@ -926,7 +915,7 @@
                     <strong>4.5/5</strong> — Valoración Google
                 </span>
                 <span class="trust-bar__item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     Producto recomendado por la OCU
                 </span>
             </div>
@@ -1158,7 +1147,7 @@
                     </div>
                     <label class="consent-checkbox" style="text-align:left;color:rgba(255,255,255,0.5);">
                         <input type="checkbox" required style="width:16px;height:16px;accent-color:var(--color-primary);">
-                        <span>Acepto la <a href="legal/privacidad.html" target="_blank" style="color:var(--color-teal);">Política de Privacidad</a>.</span>
+                        <span>Acepto la <a href="legal/privacidad.html" target="_blank" style="color:var(--color-brand);">Política de Privacidad</a>.</span>
                     </label>
                     <button type="submit" class="btn btn--primary btn--block">Recibir presupuesto →</button>
                 </form>
@@ -1182,8 +1171,11 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__brand">
-                    <div class="logo-icon" style="width:28px;height:28px;font-size:14px;">A</div>
-                    <span class="footer__brand-text">Adeslas Dental Max</span>
+                    <svg style="height:22px;width:auto;display:block;flex-shrink:0;" viewBox="0 0 115 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M110.666 0H3.78587C1.40689 6.70608 0 15.0095 0 24C0 32.9905 1.40689 41.2939 3.78587 48H110.665C113.044 41.2939 114.451 32.9905 114.451 24C114.451 15.0095 113.044 6.70608 110.665 0H110.666Z" fill="#009DDD"/>
+                        <path d="M21.8129 33.1972V32.5561C21.1127 32.5561 20.7659 32.0031 20.7659 31.3042C20.7659 30.9837 20.8211 30.3413 20.9669 29.8461L21.7564 27.2819H28.603L29.625 29.9919C29.8273 30.5765 29.9718 31.0717 29.9718 31.4763C29.9718 32.1476 29.625 32.5561 29.0129 32.5561V33.1972C30.006 33.1972 30.9663 33.0829 31.958 33.0829C32.9498 33.0829 33.9114 33.1972 34.8979 33.1972V32.5561C33.8523 32.4418 33.5896 31.4763 32.5689 28.8845L26.186 12.5049H25.8352L19.627 28.1857C19.074 29.586 17.9666 32.3236 16.8027 32.5561V33.1972C17.6435 33.1972 18.4618 33.0829 19.3052 33.0829C20.1485 33.0829 20.9656 33.1972 21.8129 33.1972ZM25.1351 18.2165L28.0802 25.8842H22.3081L25.1351 18.2165ZM40.4336 33.4901C41.4267 33.4901 41.9823 33.3443 42.4749 33.0514L44.1656 31.5683C44.6319 32.4418 45.449 33.1696 46.3817 33.4901C46.9347 32.7899 48.0145 32.0031 49.0339 31.3344L48.5978 30.897C48.3928 31.0139 48.1892 31.1308 47.7794 31.1308C47.1094 31.1308 46.8769 30.5449 46.8769 29.4967V22.2428C46.8769 18.0431 46.9951 14.7788 46.9951 12.5062H46.4119C45.6815 13.322 43.9331 14.139 42.5052 14.516V15.0993C43.2618 15.2175 43.9922 15.6248 43.9922 17.2563V21.5689C42.9978 21.1039 42.0086 20.8412 41.0194 20.8412C37.2861 20.8412 34.5459 23.1715 34.5459 27.2241C34.5459 30.7512 36.8815 33.4914 40.4336 33.4914V33.4901ZM40.9301 22.005C43.2316 22.005 44.05 23.1702 44.05 25.9394V30.7197C43.2907 31.4487 42.5341 31.7417 41.6881 31.7417C39.1541 31.7417 37.696 28.8845 37.696 26.4648C37.696 24.4826 38.63 22.005 40.9301 22.005ZM55.7386 33.4901C56.9616 33.4901 57.9219 33.2576 58.5064 33.0514L60.0802 30.7512L59.7872 30.4004C58.9137 31.0402 57.8063 31.3344 56.7291 31.3344C53.7275 31.3344 51.6559 28.7111 51.8595 25.8251H60.3416C60.3114 22.7354 57.9784 20.8385 54.9767 20.8385C51.0122 20.8385 49.0313 24.4234 49.0313 27.1637C49.0313 29.9039 51.0109 33.4901 55.736 33.4901H55.7386ZM54.4841 21.8316C56.3784 21.8316 57.1954 22.9377 57.1954 24.6573H51.9475C51.891 23.1702 52.9104 21.8316 54.4854 21.8316H54.4841ZM61.5672 24.6888C61.5672 22.005 63.7833 20.8399 66.1701 20.8399C67.4247 20.8399 68.649 21.2208 69.8746 21.5978L69.755 24.2211H68.8237C68.5031 22.7367 67.6861 22.005 66.1123 22.005C64.9472 22.005 64.1012 22.6461 64.1012 23.8441C64.1012 26.6408 69.8982 25.5913 69.8982 29.586C69.8982 32.3538 67.7728 33.4901 65.265 33.4901C64.2457 33.4901 62.76 33.1972 61.8877 32.6454L61.713 29.9354H62.7902C63.0818 31.3358 64.2194 32.3262 65.5304 32.3262C66.6076 32.3262 67.5705 31.655 67.5705 30.52C67.5705 28.3919 61.5659 28.8293 61.5659 24.6901L61.5672 24.6888ZM70.8046 14.9535V14.2835C71.8279 14.139 74.1268 13.322 74.8847 12.5049H75.4693C75.4391 14.0773 75.3537 16.9358 75.3537 19.6169V30.9259C75.3537 31.9151 75.5849 32.4405 76.4913 32.585V33.1696C75.6164 33.1696 74.7442 33.0816 73.868 33.0816C72.9918 33.0816 72.2076 33.1696 71.3642 33.1696V32.585C72.2969 32.4405 72.5281 31.9151 72.5281 31.274V21.8303C72.5281 20.1397 72.3836 17.9538 72.2969 16.8451C72.2378 15.651 71.7412 14.9522 70.8072 14.9522L70.8046 14.9535ZM81.0076 33.4901C82.2883 33.4901 83.221 32.7899 84.2128 32.0622C84.5609 32.7899 85.4371 33.3443 86.5458 33.4901L88.7277 31.7417L88.2916 31.3042C88.0893 31.3633 87.8292 31.4185 87.6821 31.4185C87.0384 31.4185 86.8059 31.0389 86.8059 29.699V28.6809C86.8361 27.0192 86.9215 25.5046 86.9215 24.4563C86.9215 21.5387 84.7067 20.8399 82.1123 20.8399C80.7435 20.8399 79.577 21.0159 78.3527 21.3653V24.1344H79.0555C79.7846 23.0533 80.5136 22.587 81.9416 22.587C83.9225 22.587 84.0368 24.3381 84.0368 25.9105C83.6322 25.9105 83.1343 25.8251 82.668 25.8251C80.0171 25.8251 77.0719 27.0192 77.0719 30.1088C77.0719 32.2658 79.0253 33.4901 81.0089 33.4901H81.0076ZM82.6378 26.8156C83.1645 26.8156 83.7162 26.9036 84.0355 26.9601L84.1248 31.2438C83.6585 31.538 83.0752 31.7417 82.1714 31.7417C80.9471 31.7417 79.8989 30.7197 79.8989 29.3824C79.8989 27.5144 81.2979 26.8142 82.6391 26.8142L82.6378 26.8156ZM89.3438 24.6888C89.3438 22.005 91.5573 20.8399 93.9455 20.8399C95.1987 20.8399 96.4256 21.2208 97.646 21.5978L97.533 24.2211H96.599C96.2785 22.7367 95.4614 22.005 93.8877 22.005C92.7238 22.005 91.8752 22.6461 91.8752 23.8441C91.8752 26.6408 97.6762 25.5913 97.6762 29.586C97.6762 32.3538 95.5494 33.4901 93.0417 33.4901C92.0223 33.4901 90.5353 33.1972 89.6617 32.6454L89.487 29.9354H90.5642C90.8558 31.3358 91.9908 32.3262 93.3031 32.3262C94.3829 32.3262 95.3445 31.655 95.3445 30.52C95.3445 28.3919 89.3412 28.8293 89.3412 24.6901L89.3438 24.6888Z" fill="white"/>
+                    </svg>
+                    <span class="footer__brand-text">Dental Max</span>
                 </div>
                 <div class="footer__links">
                     <a href="legal/aviso-legal.html" target="_blank">Aviso Legal</a>
@@ -1369,7 +1361,7 @@
                     const data = { name: '', email, phone, familySize: '', price: null, timestamp: new Date().toISOString(), source: 'landing-dental-max-cta-final' };
                     await submitToAPI(data);
                     console.log('[Adeslas] CTA lead:', data);
-                    ctaForm.innerHTML = '<div style="color:var(--color-teal);font-weight:600;font-size:17px;padding:12px 0;">¡Recibido! Te enviamos el presupuesto en minutos.</div>';
+                    ctaForm.innerHTML = '<div style="color:var(--color-brand);font-weight:600;font-size:17px;padding:12px 0;">¡Recibido! Te enviamos el presupuesto en minutos.</div>';
                 });
             }
 
