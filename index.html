@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adeslas Dental Max — Seguro Dental Familiar desde 5 €/mes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --color-dark: #0F1923;
+            --color-primary: #0057A8;
+            --color-primary-dark: #003D7A;
+            --color-primary-light: #E8F0FE;
+            --color-teal: #00A896;
+            --color-accent: #00A896;
+            --color-secondary: #5C6B7A;
+            --color-bg: #F8FAFC;
+            --color-white: #FFFFFF;
+            --color-border: #E2E8F0;
+            --color-error: #DC2626;
+            --font-heading: 'Sora', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-xl: 0 32px 80px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--color-primary); margin-bottom: 16px;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 2px;
+            background: var(--color-primary); border-radius: 2px;
+        }
+        .section-title {
+            font-size: 44px; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px;
+        }
+        .section-sub {
+            font-size: 17px; color: var(--color-secondary);
+            max-width: 640px; line-height: 1.7;
+        }
+
+        .reveal {
+            opacity: 0; transform: translateY(36px);
+            transition: opacity 0.8s cubic-bezier(0.23,1,0.32,1), transform 0.8s cubic-bezier(0.23,1,0.32,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        header {
+            padding: 16px 40px; display: flex; align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,87,168,0.06);
+            position: sticky; top: 0; z-index: 100;
+            animation: fadeInDown 0.5s ease;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 18px;
+            font-weight: 800; font-family: var(--font-heading);
+        }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo__brand {
+            font-size: 16px; font-weight: 700; color: var(--color-dark);
+            font-family: var(--font-heading); letter-spacing: -0.3px;
+        }
+        .logo__accent {
+            font-size: 12px; font-weight: 600; color: var(--color-teal);
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+        .header-right { display: flex; align-items: center; gap: 24px; }
+        .header-phone {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; font-weight: 600; color: var(--color-dark);
+            text-decoration: none; padding: 8px 16px;
+            border-radius: var(--radius-sm); transition: background 0.2s;
+        }
+        .header-phone:hover { background: var(--color-primary-light); }
+        .header-phone svg { color: var(--color-teal); flex-shrink: 0; }
+        .header-cta {
+            padding: 10px 22px;
+            background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+            color: var(--color-white); border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,87,168,0.25);
+        }
+        .header-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,87,168,0.3);
+        }
+
+        .hero {
+            position: relative; min-height: 100vh;
+            display: grid; grid-template-columns: 1fr 460px;
+            align-items: center; gap: 56px; padding: 80px 64px;
+            background: url('hero-bg.jpg') center 20% / cover no-repeat;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(108deg,
+                rgba(15,25,35,0.95) 0%, rgba(15,25,35,0.85) 30%,
+                rgba(15,25,35,0.55) 60%, rgba(15,25,35,0.15) 100%);
+            pointer-events: none; z-index: 1;
+        }
+        .hero::after {
+            content: ''; position: absolute; top: -50%; right: -20%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle,rgba(0,168,150,0.08) 0%,transparent 70%);
+            pointer-events: none; z-index: 1;
+        }
+        .hero__content {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; gap: 20px;
+            animation: fadeInUp 0.8s cubic-bezier(0.23,1,0.32,1);
+        }
+        .hero__badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px; background: rgba(0,168,150,0.12);
+            border: 1px solid rgba(0,168,150,0.25);
+            border-radius: 100px; font-size: 12px; font-weight: 600;
+            color: var(--color-teal); width: fit-content;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .hero__badge svg { flex-shrink: 0; }
+        .hero h1 {
+            font-size: 58px; font-weight: 900; line-height: 1.1;
+            color: var(--color-white); letter-spacing: -1.5px;
+            text-shadow: 0 4px 32px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .hero h1 em { font-style: normal; color: var(--color-teal); }
+        .hero__subtitle {
+            font-size: 17px; color: rgba(255,255,255,0.92);
+            line-height: 1.75; max-width: 540px;
+        }
+        .hero__features {
+            display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;
+        }
+        .hero__feature {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 100px; font-size: 13px; font-weight: 500;
+            color: rgba(255,255,255,0.95); transition: all 0.3s;
+        }
+        .hero__feature:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.35); transform: translateY(-2px);
+        }
+        .hero__feature svg { flex-shrink: 0; color: var(--color-teal); }
+
+        .hero__form-card {
+            position: relative; z-index: 2;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: var(--shadow-xl); padding: 36px 32px;
+            animation: scaleIn 0.8s cubic-bezier(0.23,1,0.32,1) 0.2s both;
+        }
+        .form-card__title {
+            font-family: var(--font-heading); font-size: 22px;
+            font-weight: 700; color: var(--color-dark); margin-bottom: 4px;
+        }
+        .form-card__sub {
+            font-size: 14px; color: var(--color-secondary); margin-bottom: 24px;
+        }
+        .form-progress {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 28px;
+        }
+        .form-progress__step {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 600; color: var(--color-secondary);
+            transition: color 0.3s;
+        }
+        .form-progress__step.active { color: var(--color-primary); }
+        .form-progress__step.completed { color: var(--color-teal); }
+        .form-progress__dot {
+            width: 28px; height: 28px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 700;
+            background: var(--color-border); color: var(--color-secondary);
+            transition: all 0.4s;
+        }
+        .form-progress__step.active .form-progress__dot {
+            background: var(--color-primary); color: white;
+            box-shadow: 0 0 0 4px rgba(0,87,168,0.15);
+        }
+        .form-progress__step.completed .form-progress__dot {
+            background: var(--color-teal); color: white;
+        }
+        .form-progress__line {
+            width: 40px; height: 2px; background: var(--color-border);
+            border-radius: 2px; transition: background 0.4s;
+        }
+        .form-progress__line.completed { background: var(--color-teal); }
+
+        #leadForm { display: flex; flex-direction: column; gap: 16px; }
+        .form-step { display: flex; flex-direction: column; gap: 16px; }
+        .form-step--hidden { display: none; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 13px; font-weight: 600; color: var(--color-dark); }
+        .form-group label .required { color: var(--color-error); }
+        .form-group .microcopy {
+            font-size: 12px; color: var(--color-secondary);
+            font-weight: 400; margin-top: 4px;
+        }
+        input, select {
+            padding: 14px 16px; border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-md); font-family: var(--font-body);
+            font-size: 15px; color: var(--color-dark);
+            background: rgba(255,255,255,0.8);
+            transition: all 0.25s ease; width: 100%;
+            -webkit-appearance: none; appearance: none;
+        }
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235C6B7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 16px center;
+            padding-right: 44px;
+        }
+        input:focus, select:focus {
+            outline: none; border-color: var(--color-primary);
+            background: var(--color-white);
+            box-shadow: 0 0 0 4px rgba(0,87,168,0.1);
+        }
+        input.error, select.error {
+            border-color: var(--color-error);
+            box-shadow: 0 0 0 4px rgba(220,38,38,0.08);
+        }
+        .input-feedback {
+            font-size: 12px; font-weight: 500; color: var(--color-error); display: none;
+        }
+        .input-feedback.visible { display: block; }
+
+        .price-calculator {
+            background: linear-gradient(135deg,var(--color-primary-light),rgba(0,168,150,0.06));
+            border: 1px solid rgba(0,87,168,0.1);
+            border-radius: var(--radius-md); padding: 24px; margin-top: 4px;
+            display: none;
+        }
+        .price-calculator.visible {
+            display: block; animation: fadeInUp 0.4s ease;
+        }
+        .price-calculator__row {
+            display: flex; justify-content: space-between;
+            align-items: center; padding: 6px 0;
+            font-size: 14px; color: var(--color-secondary);
+        }
+        .price-calculator__row .value { font-weight: 600; color: var(--color-dark); }
+        .price-calculator__row.total {
+            padding: 12px 0 8px; border-top: 1px solid rgba(0,87,168,0.1);
+            margin-top: 6px; font-size: 16px; font-weight: 700; color: var(--color-dark);
+        }
+        .price-calculator__row.total .value {
+            font-size: 22px; color: var(--color-primary); font-family: var(--font-heading);
+        }
+        .price-calculator__saving {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 12px; padding: 8px 14px;
+            background: rgba(0,168,150,0.08);
+            border: 1px solid rgba(0,168,150,0.2);
+            border-radius: var(--radius-sm); font-size: 13px;
+            font-weight: 600; color: var(--color-teal);
+        }
+
+        .btn {
+            padding: 16px 28px; border: none;
+            border-radius: var(--radius-md); font-family: var(--font-heading);
+            font-size: 16px; font-weight: 700; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
+            display: inline-flex; align-items: center;
+            justify-content: center; gap: 8px;
+            position: relative; overflow: hidden;
+        }
+        .btn--primary {
+            background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+            color: var(--color-white);
+            box-shadow: 0 8px 24px rgba(0,87,168,0.3);
+        }
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(0,87,168,0.35);
+        }
+        .btn--secondary {
+            background: transparent; color: var(--color-primary);
+            border: 1.5px solid var(--color-border);
+            font-size: 14px; padding: 12px 24px;
+        }
+        .btn--secondary:hover {
+            border-color: var(--color-primary); background: var(--color-primary-light);
+        }
+        .btn--teal {
+            background: linear-gradient(135deg,var(--color-teal),#008573);
+            color: var(--color-white);
+            box-shadow: 0 8px 24px rgba(0,168,150,0.3);
+        }
+        .btn--teal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(0,168,150,0.35);
+        }
+        .btn--block { width: 100%; }
+
+        .hero__trust {
+            display: flex; align-items: center; justify-content: center;
+            gap: 16px; margin-top: 16px; font-size: 12px; color: var(--color-secondary);
+        }
+        .hero__trust-badge { display: flex; align-items: center; gap: 6px; }
+        .hero__trust-badge svg { color: var(--color-teal); flex-shrink: 0; }
+
+        .hero__success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; }
+        .hero__success.visible { display: flex; animation: scaleIn 0.5s cubic-bezier(0.23,1,0.32,1); }
+        .hero__success-icon {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: linear-gradient(135deg,rgba(0,168,150,0.15),rgba(0,168,150,0.06));
+            border: 2px solid rgba(0,168,150,0.25);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .hero__success-icon svg { width: 36px; height: 36px; color: var(--color-teal); }
+        .hero__success h3 { font-size: 24px; font-weight: 700; color: var(--color-teal); margin-bottom: 8px; }
+        .hero__success p { font-size: 15px; color: var(--color-secondary); line-height: 1.7; }
+        #leadForm.hidden { display: none; }
+
+        .trust-bar { background: var(--color-white); padding: 32px 0; border-bottom: 1px solid var(--color-border); }
+        .trust-bar__inner {
+            display: flex; align-items: center; justify-content: center;
+            gap: 48px; flex-wrap: wrap;
+        }
+        .trust-bar__item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--color-secondary); }
+        .trust-bar__item strong { color: var(--color-dark); font-weight: 700; }
+        .trust-bar__item svg { flex-shrink: 0; }
+        .trust-bar__stars { color: #F59E0B; letter-spacing: 2px; }
+
+        .coverages { padding: 100px 0; background: var(--color-white); }
+        .coverages__header { text-align: center; margin-bottom: 60px; }
+        .coverages__header .section-label { justify-content: center; }
+        .coverages__header .section-sub { margin: 0 auto; }
+        .coverages__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+        .coverage-card {
+            padding: 32px 24px; background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg); transition: all 0.4s; text-align: center;
+        }
+        .coverage-card:hover {
+            transform: translateY(-6px); box-shadow: var(--shadow-lg);
+            border-color: rgba(0,87,168,0.15);
+        }
+        .coverage-card__icon {
+            width: 56px; height: 56px; border-radius: 16px;
+            background: var(--color-primary-light); display: flex;
+            align-items: center; justify-content: center;
+            margin: 0 auto 16px; color: var(--color-primary);
+        }
+        .coverage-card__icon svg { width: 28px; height: 28px; }
+        .coverage-card__title {
+            font-family: var(--font-heading); font-size: 17px;
+            font-weight: 700; margin-bottom: 8px; color: var(--color-dark);
+        }
+        .coverage-card__items { list-style: none; font-size: 14px; color: var(--color-secondary); line-height: 2; }
+        .coverage-card__items li::before { content: '✓ '; color: var(--color-teal); font-weight: 700; }
+        .coverage-card__count {
+            display: inline-flex; align-items: center; gap: 4px;
+            margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--color-primary);
+        }
+
+        .how-it-works { padding: 100px 0; background: var(--color-dark); color: var(--color-white); }
+        .how-it-works .section-label { color: var(--color-teal); }
+        .how-it-works .section-title { color: var(--color-white); }
+        .how-it-works .section-sub { color: rgba(255,255,255,0.6); }
+        .steps {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 40px; margin-top: 56px; position: relative;
+        }
+        .steps::before {
+            content: ''; position: absolute; top: 40px;
+            left: calc(16.67% + 20px); right: calc(16.67% + 20px);
+            height: 2px;
+            background: linear-gradient(90deg,var(--color-primary),rgba(0,87,168,0.2));
+        }
+        .step { text-align: center; position: relative; }
+        .step__number {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading); font-size: 28px; font-weight: 800;
+            color: var(--color-white); margin: 0 auto 24px;
+            position: relative; z-index: 1;
+            box-shadow: 0 8px 32px rgba(0,87,168,0.3);
+        }
+        .step__title {
+            font-family: var(--font-heading); font-size: 20px;
+            font-weight: 700; margin-bottom: 10px;
+        }
+        .step__text { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+        .network { padding: 100px 0; background: var(--color-white); }
+        .network__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .network__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .network-stat {
+            padding: 28px; background: var(--color-bg);
+            border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;
+        }
+        .network-stat__number {
+            font-family: var(--font-heading); font-size: 48px; font-weight: 800;
+            color: var(--color-primary); letter-spacing: -1px; line-height: 1;
+        }
+        .network-stat__label { font-size: 13px; color: var(--color-secondary); font-weight: 500; margin-top: 8px; }
+        .network-stat--primary .network-stat__number { color: var(--color-primary); }
+        .network__text h3 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+        .network__text p { font-size: 16px; color: var(--color-secondary); line-height: 1.8; }
+
+        .testimonials { padding: 100px 0; background: var(--color-bg); }
+        .testimonials__header { text-align: center; margin-bottom: 56px; }
+        .testimonials__header .section-label { justify-content: center; }
+        .testimonials__header .section-sub { margin: 0 auto; }
+        .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testimonial-card {
+            padding: 32px; background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg); transition: all 0.4s;
+        }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .testimonial-card__stars { color: #F59E0B; font-size: 14px; letter-spacing: 1px; margin-bottom: 16px; }
+        .testimonial-card__text {
+            font-size: 15px; color: var(--color-secondary);
+            line-height: 1.8; margin-bottom: 20px; font-style: italic;
+        }
+        .testimonial-card__author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-card__avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg,var(--color-primary-light),var(--color-border));
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading); font-weight: 700;
+            font-size: 16px; color: var(--color-primary); flex-shrink: 0;
+        }
+        .testimonial-card__name { font-size: 15px; font-weight: 700; color: var(--color-dark); }
+        .testimonial-card__detail { font-size: 13px; color: var(--color-secondary); }
+
+        .faq { padding: 100px 0; background: var(--color-white); }
+        .faq__header { text-align: center; margin-bottom: 48px; }
+        .faq__header .section-label { justify-content: center; }
+        .faq__header .section-sub { margin: 0 auto; }
+        .faq__list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md); overflow: hidden; transition: all 0.3s;
+        }
+        .faq-item:hover { border-color: rgba(0,87,168,0.2); }
+        .faq-item__question {
+            width: 100%; padding: 20px 24px; background: none; border: none;
+            font-family: var(--font-body); font-size: 16px; font-weight: 600;
+            color: var(--color-dark); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 16px; text-align: left; transition: background 0.2s;
+        }
+        .faq-item__question:hover { background: var(--color-bg); }
+        .faq-item__icon { width: 24px; height: 24px; flex-shrink: 0; transition: transform 0.3s; color: var(--color-primary); }
+        .faq-item.open .faq-item__icon { transform: rotate(180deg); }
+        .faq-item__answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.open .faq-item__answer { max-height: 300px; padding: 0 24px 20px; }
+        .faq-item__answer p { font-size: 15px; color: var(--color-secondary); line-height: 1.8; }
+
+        .final-cta { padding: 100px 0; background: var(--color-dark); position: relative; overflow: hidden; }
+        .final-cta::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle,rgba(0,87,168,0.12) 0%,transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta::after {
+            content: ''; position: absolute; bottom: -200px; left: -200px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle,rgba(0,168,150,0.08) 0%,transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta__inner { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; }
+        .final-cta h2 { font-size: 40px; font-weight: 800; color: var(--color-white); margin-bottom: 12px; letter-spacing: -1px; }
+        .final-cta p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 36px; line-height: 1.7; }
+        .final-cta__form { display: flex; flex-direction: column; gap: 16px; max-width: 480px; margin: 0 auto; }
+        .final-cta__form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .final-cta__form input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--color-white); }
+        .final-cta__form input::placeholder { color: rgba(255,255,255,0.4); }
+        .final-cta__form input:focus { background: rgba(255,255,255,0.12); border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(0,87,168,0.12); }
+        .final-cta__trust { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.4); }
+        .final-cta__trust svg { color: var(--color-teal); flex-shrink: 0; }
+
+        footer { padding: 48px 0; background: #0A1118; border-top: 1px solid rgba(255,255,255,0.04); }
+        .footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+        .footer__brand { display: flex; align-items: center; gap: 10px; }
+        .footer__brand-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.8); font-family: var(--font-heading); }
+        .footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .footer__links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+        .footer__links a:hover { color: var(--color-teal); }
+        .footer__copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+        .whatsapp-btn {
+            position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+            transition: all 0.3s; animation: pulse 2s ease-in-out infinite;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 36px rgba(37,211,102,0.45); }
+        .whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+        .whatsapp-tooltip {
+            position: absolute; right: 64px; top: 50%; transform: translateY(-50%);
+            background: var(--color-white); padding: 10px 16px;
+            border-radius: var(--radius-sm); font-size: 13px; font-weight: 600;
+            color: var(--color-dark); white-space: nowrap;
+            box-shadow: var(--shadow-md); opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
+        .cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: var(--color-dark); padding: 20px 40px;
+            display: none; align-items: center; justify-content: space-between;
+            gap: 24px; flex-wrap: wrap;
+            box-shadow: 0 -8px 32px rgba(0,0,0,0.15);
+        }
+        .cookie-banner.visible { display: flex; }
+        .cookie-banner p {
+            font-size: 13px; color: rgba(255,255,255,0.7);
+            line-height: 1.6; max-width: 720px;
+        }
+        .cookie-banner a {
+            color: var(--color-teal); text-decoration: none;
+        }
+        .cookie-banner a:hover { text-decoration: underline; }
+        .cookie-banner__actions {
+            display: flex; gap: 12px; flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 10px 24px; border-radius: var(--radius-sm);
+            font-family: var(--font-body); font-size: 13px;
+            font-weight: 600; cursor: pointer; border: none;
+            transition: all 0.2s;
+        }
+        .cookie-btn--accept {
+            background: var(--color-primary); color: var(--color-white);
+        }
+        .cookie-btn--accept:hover { background: var(--color-primary-dark); }
+        .cookie-btn--settings {
+            background: transparent; color: rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .cookie-btn--settings:hover {
+            background: rgba(255,255,255,0.06); color: var(--color-white);
+        }
+
+        .consent-checkbox {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 13px; color: var(--color-secondary); line-height: 1.5;
+        }
+        .consent-checkbox input[type="checkbox"] {
+            width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+            accent-color: var(--color-primary);
+            padding: 0; border-radius: 4px;
+        }
+        .consent-checkbox a {
+            color: var(--color-primary); text-decoration: underline;
+        }
+        .consent-checkbox.error input {
+            outline: 2px solid var(--color-error); outline-offset: 2px;
+        }
+
+        .spinner {
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white; border-radius: 50%;
+            animation: spin 0.6s linear infinite; display: none;
+        }
+        .btn.loading .spinner { display: inline-block; }
+        .btn.loading .btn__text { display: none; }
+
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 40px 64px; min-height: auto; }
+            .hero h1 { font-size: 44px; }
+            .coverages__grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 767px) {
+            .container { padding: 0 20px; }
+            .section-title { font-size: 30px; }
+            .section-sub { font-size: 15px; }
+            header { padding: 12px 20px; }
+            .header-phone span { display: none; }
+            .header-cta { display: none; }
+            .hero { padding: 40px 20px 48px; gap: 32px; }
+            .hero::before {
+                background: linear-gradient(180deg, rgba(15,25,35,0.92) 0%, rgba(15,25,35,0.80) 50%, rgba(15,25,35,0.55) 100%);
+            }
+            .hero h1 { font-size: 32px; letter-spacing: -0.8px; }
+            .hero__subtitle { font-size: 15px; }
+            .hero__features { gap: 8px; }
+            .hero__feature { font-size: 12px; padding: 8px 14px; }
+            .hero__form-card { padding: 28px 20px; border-radius: var(--radius-lg); }
+            .form-card__title { font-size: 20px; }
+            .price-calculator { padding: 16px; }
+            .trust-bar { padding: 24px 0; }
+            .trust-bar__inner { gap: 24px; }
+            .trust-bar__item { font-size: 13px; }
+            .coverages { padding: 60px 0; }
+            .coverages__grid { grid-template-columns: 1fr; }
+            .coverage-card { padding: 24px 20px; }
+            .how-it-works { padding: 60px 0; }
+            .steps { grid-template-columns: 1fr; gap: 32px; }
+            .steps::before { display: none; }
+            .step__number { width: 64px; height: 64px; font-size: 22px; }
+            .network { padding: 60px 0; }
+            .network__inner { grid-template-columns: 1fr; gap: 40px; }
+            .network__stats { gap: 16px; }
+            .network-stat { padding: 20px; }
+            .network-stat__number { font-size: 36px; }
+            .network__text h3 { font-size: 24px; }
+            .testimonials { padding: 60px 0; }
+            .testimonials__grid { grid-template-columns: 1fr; }
+            .testimonial-card { padding: 24px; }
+            .faq { padding: 60px 0; }
+            .faq-item__question { font-size: 15px; padding: 16px 18px; }
+            .faq-item.open .faq-item__answer { padding: 0 18px 16px; }
+            .final-cta { padding: 60px 0; }
+            .final-cta h2 { font-size: 28px; }
+            .final-cta__form-row { grid-template-columns: 1fr; }
+            footer { padding: 32px 0; }
+            .footer__inner { flex-direction: column; text-align: center; }
+            .footer__links { justify-content: center; gap: 16px; }
+            .whatsapp-btn { width: 48px; height: 48px; bottom: 16px; right: 16px; }
+            .whatsapp-btn svg { width: 24px; height: 24px; }
+            .cookie-banner { padding: 16px 20px; flex-direction: column; text-align: center; }
+            .cookie-banner p { font-size: 12px; }
+            .cookie-banner__actions { width: 100%; justify-content: center; }
+            .cookie-btn { padding: 10px 18px; font-size: 12px; flex: 1; }
+            .consent-checkbox { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">A</div>
+            <div class="logo-text">
+                <span class="logo__brand">Adeslas</span>
+                <span class="logo__accent">Dental Max</span>
+            </div>
+        </a>
+        <div class="header-right">
+            <a href="tel:900000000" class="header-phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>900 000 000</span>
+            </a>
+            <a href="#lead-form" class="header-cta">Pide presupuesto</a>
+        </div>
+    </header>
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            <div class="hero__badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Sin carencias · Sin cuestionario de salud
+            </div>
+            <h1>Protege la salud dental de tu familia desde <em>5 €/mes</em></h1>
+            <p class="hero__subtitle">Adeslas Dental Max incluye hasta 49 tratamientos sin coste adicional, revisión bucodental anual completa y acceso desde el primer día. Sin preguntas médicas ni edad máxima.</p>
+            <div class="hero__features">
+                <span class="hero__feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    49 tratamientos incluidos
+                </span>
+                <span class="hero__feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Revisión anual completa
+                </span>
+                <span class="hero__feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Sin esperas ni papeleo
+                </span>
+            </div>
+        </div>
+
+        <div class="hero__form-card" id="lead-form">
+            <div class="form-card__title">Recibe tu presupuesto personalizado</div>
+            <p class="form-card__sub">Completa los datos y te enviamos el precio exacto para tu familia.</p>
+
+            <div class="form-progress">
+                <div class="form-progress__step active" id="progressStep1">
+                    <span class="form-progress__dot">1</span>
+                    <span>Datos</span>
+                </div>
+                <div class="form-progress__line" id="progressLine1"></div>
+                <div class="form-progress__step" id="progressStep2">
+                    <span class="form-progress__dot">2</span>
+                    <span>Presupuesto</span>
+                </div>
+            </div>
+
+            <form id="leadForm" novalidate>
+                <div class="form-step" id="step1">
+                    <div class="form-group">
+                        <label for="name">Nombre completo <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" required minlength="2" placeholder="Ej: Juan García Martínez">
+                        <span class="microcopy">Te llamaremos por tu nombre, sin formalidades.</span>
+                        <span class="input-feedback" id="nameFeedback">Introduce tu nombre completo</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" required placeholder="Ej: juan@gmail.com">
+                        <span class="microcopy">Te enviaremos el presupuesto detallado a esta dirección.</span>
+                        <span class="input-feedback" id="emailFeedback">Introduce un email válido</span>
+                    </div>
+                    <button type="button" class="btn btn--primary btn--block" id="step1Next">Ver mi precio →</button>
+                </div>
+
+                <div class="form-step form-step--hidden" id="step2">
+                    <div class="form-group">
+                        <label for="phone">Teléfono móvil <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required pattern="[0-9]{9}" placeholder="Ej: 600 000 000" title="9 dígitos" inputmode="numeric">
+                        <span class="microcopy">Para confirmar tu presupuesto por WhatsApp si lo prefieres.</span>
+                        <span class="input-feedback" id="phoneFeedback">Introduce un número válido de 9 dígitos</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="family-size">¿Cuántos sois en la familia? <span class="required">*</span></label>
+                        <select id="family-size" name="family-size" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="1">Solo yo</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 o más</option>
+                        </select>
+                        <span class="microcopy">A partir de 3 asegurados, el precio baja a 5 €/mes por persona.</span>
+                    </div>
+
+                    <div class="price-calculator" id="priceCalculator">
+                        <div class="price-calculator__row">
+                            <span>Precio por persona</span>
+                            <span class="value" id="pricePerPerson">—</span>
+                        </div>
+                        <div class="price-calculator__row">
+                            <span>Asegurados</span>
+                            <span class="value" id="priceCount">—</span>
+                        </div>
+                        <div class="price-calculator__row total">
+                            <span>Total mensual</span>
+                            <span class="value" id="priceTotal">—</span>
+                        </div>
+                        <div class="price-calculator__saving" id="priceSaving" style="display:none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Ahorras <span id="savingAmount">0</span> €/mes respecto a un plan individual
+                        </div>
+                    </div>
+
+                    <label class="consent-checkbox" id="consentWrapper">
+                        <input type="checkbox" id="consentCheck" required>
+                        <span>He leído y acepto la <a href="legal/privacidad.html" target="_blank">Política de Privacidad</a> y el <a href="legal/aviso-legal.html" target="_blank">Aviso Legal</a>.</span>
+                    </label>
+
+                    <div style="display:flex;gap:10px;">
+                        <button type="button" class="btn btn--secondary" id="step2Back">← Atrás</button>
+                        <button type="submit" class="btn btn--primary btn--block" id="submitBtn">
+                            <span class="btn__text">Recibir presupuesto sin compromiso</span>
+                            <span class="spinner"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="hero__success" id="successMessage">
+                <div class="hero__success-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>¡Presupuesto enviado!</h3>
+                <p>Revisa tu bandeja de entrada en los próximos minutos. Te hemos enviado el presupuesto detallado con los precios para tu familia.<br><br>Si no lo encuentras, revisa la carpeta de spam o contáctanos por WhatsApp.</p>
+            </div>
+
+            <p class="hero__trust">
+                <span class="hero__trust-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Datos seguros
+                </span>
+                <span>·</span>
+                <span class="hero__trust-badge">Presupuesto personalizado</span>
+                <span>·</span>
+                <span class="hero__trust-badge">Sin compromiso</span>
+            </p>
+        </div>
+    </section>
+    <section class="trust-bar reveal">
+        <div class="container">
+            <div class="trust-bar__inner">
+                <span class="trust-bar__item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <strong>+50.000</strong> familias confían en Adeslas Dental Max
+                </span>
+                <span class="trust-bar__item">
+                    <span class="trust-bar__stars">★★★★★</span>
+                    <strong>4.5/5</strong> — Valoración Google
+                </span>
+                <span class="trust-bar__item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Producto recomendado por la OCU
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="coverages" id="tratamientos">
+        <div class="container">
+            <div class="coverages__header reveal">
+                <div class="section-label">Cobertura completa</div>
+                <h2 class="section-title">49 tratamientos incluidos sin coste adicional</h2>
+                <p class="section-sub">Desde diagnósticos avanzados hasta odontopediatría. Todos los cuidados que tu familia necesita en un solo plan.</p>
+            </div>
+            <div class="coverages__grid">
+                <div class="coverage-card reveal reveal-delay-1">
+                    <div class="coverage-card__icon"><i data-lucide="search"></i></div>
+                    <h3 class="coverage-card__title">Diagnóstico</h3>
+                    <ul class="coverage-card__items">
+                        <li>Estudio radiológico 3D</li>
+                        <li>Tomografía TAC</li>
+                        <li>Ortopantomografía</li>
+                        <li>Pruebas diagnósticas</li>
+                    </ul>
+                    <span class="coverage-card__count">8 servicios</span>
+                </div>
+                <div class="coverage-card reveal reveal-delay-2">
+                    <div class="coverage-card__icon"><i data-lucide="shield-check"></i></div>
+                    <h3 class="coverage-card__title">Prevención</h3>
+                    <ul class="coverage-card__items">
+                        <li>Revisión anual completa</li>
+                        <li>Limpiezas bucales</li>
+                        <li>Fluorizaciones</li>
+                        <li>Educación bucodental</li>
+                    </ul>
+                    <span class="coverage-card__count">12 servicios</span>
+                </div>
+                <div class="coverage-card reveal reveal-delay-3">
+                    <div class="coverage-card__icon"><i data-lucide="activity"></i></div>
+                    <h3 class="coverage-card__title">Cirugía</h3>
+                    <ul class="coverage-card__items">
+                        <li>Extracciones dentales</li>
+                        <li>Cirugía menor</li>
+                        <li>Cirugía bucal</li>
+                        <li>Exodoncias</li>
+                    </ul>
+                    <span class="coverage-card__count">10 servicios</span>
+                </div>
+                <div class="coverage-card reveal reveal-delay-4">
+                    <div class="coverage-card__icon"><i data-lucide="smile"></i></div>
+                    <h3 class="coverage-card__title">Odontopediatría</h3>
+                    <ul class="coverage-card__items">
+                        <li>Cuidado dental infantil</li>
+                        <li>Fluorizaciones infantiles</li>
+                        <li>Revisión infantil</li>
+                        <li>Educación bucodental</li>
+                    </ul>
+                    <span class="coverage-card__count">9 servicios</span>
+                </div>
+                <div class="coverage-card reveal reveal-delay-5">
+                    <div class="coverage-card__icon"><i data-lucide="clock"></i></div>
+                    <h3 class="coverage-card__title">Urgencias</h3>
+                    <ul class="coverage-card__items">
+                        <li>Consulta urgente</li>
+                        <li>Tratamiento de urgencia</li>
+                        <li>Analgesia dental</li>
+                        <li>Acceso preferente</li>
+                    </ul>
+                    <span class="coverage-card__count">10 servicios</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="coverages__header reveal">
+                <div class="section-label">Proceso simple</div>
+                <h2 class="section-title">Tu seguro dental en 3 pasos</h2>
+                <p class="section-sub">Contratación inmediata, sin papeleo ni preguntas médicas. Activo desde el primer día.</p>
+            </div>
+            <div class="steps">
+                <div class="step reveal reveal-delay-1">
+                    <div class="step__number">1</div>
+                    <h3 class="step__title">Elige tu plan</h3>
+                    <p class="step__text">Selecciona el número de asegurados de tu familia y obtén tu presupuesto personalizado al instante.</p>
+                </div>
+                <div class="step reveal reveal-delay-2">
+                    <div class="step__number">2</div>
+                    <h3 class="step__title">Contratación inmediata</h3>
+                    <p class="step__text">Sin cuestionario de salud, sin edad máxima y sin papeleo. Solo tus datos básicos y ya estás dentro.</p>
+                </div>
+                <div class="step reveal reveal-delay-3">
+                    <div class="step__number">3</div>
+                    <h3 class="step__title">Activo desde el día 1</h3>
+                    <p class="step__text">Sin períodos de carencia. Desde el momento de la contratación puedes acceder a todos los servicios incluidos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="network" id="red">
+        <div class="container">
+            <div class="network__inner">
+                <div class="network__stats reveal">
+                    <div class="network-stat">
+                        <div class="network-stat__number" data-count="1600">0</div>
+                        <div class="network-stat__label">Odontólogos en toda España</div>
+                    </div>
+                    <div class="network-stat network-stat--primary">
+                        <div class="network-stat__number" data-count="185">0</div>
+                        <div class="network-stat__label">Clínicas propias y concertadas</div>
+                    </div>
+                </div>
+                <div class="network__text reveal reveal-delay-1">
+                    <h3>La red dental más extensa de España</h3>
+                    <p>Adeslas cuenta con una red propia de clínicas dentales y odontólogos concertados en todo el territorio nacional. Accede a los mejores profesionales cerca de tu hogar, con la garantía de una de las aseguradoras líderes del país.</p>
+                    <p style="margin-top:16px;">Además, todos los centros aplican los precios concertados de Adeslas, sin sorpresas ni costes ocultos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="opiniones">
+        <div class="container">
+            <div class="testimonials__header reveal">
+                <div class="section-label">Opiniones reales</div>
+                <h2 class="section-title">Lo que dicen nuestras familias</h2>
+                <p class="section-sub">Miles de familias ya confían en Adeslas Dental Max para cuidar su salud bucodental.</p>
+            </div>
+            <div class="testimonials__grid">
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Contraté para mi familia de 4 y estamos encantados. Ahorramos más de 200 € al año en dentista y las revisiones de los niños van incluidas."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">M</div>
+                        <div>
+                            <div class="testimonial-card__name">Familia Martínez</div>
+                            <div class="testimonial-card__detail">Madrid · Clientes desde 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Lo contraté en 5 minutos desde el móvil, sin preguntas médicas ni historial. Al día siguiente ya tenía cita en una clínica cerca de casa."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">C</div>
+                        <div>
+                            <div class="testimonial-card__name">Carlos G.</div>
+                            <div class="testimonial-card__detail">Barcelona · Cliente desde 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Mis hijos tienen todas las revisiones y fluorizaciones cubiertas. Por lo que pagaba antes en una sola limpieza, ahora tengo el seguro todo el año."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">L</div>
+                        <div>
+                            <div class="testimonial-card__name">Laura S.</div>
+                            <div class="testimonial-card__detail">Valencia · Cliente desde 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq__header reveal">
+                <div class="section-label">Preguntas frecuentes</div>
+                <h2 class="section-title">Todo lo que necesitas saber</h2>
+                <p class="section-sub">Respuestas claras a las dudas más comunes sobre Adeslas Dental Max.</p>
+            </div>
+            <div class="faq__list">
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Hay períodos de carencia?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>No. En Adeslas Dental Max no se aplican períodos de carencia. Desde el mismo momento de la contratación puedes acceder a todos los servicios incluidos en tu plan. Es una de las ventajas principales frente a otros seguros dentales.</p></div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Puedo ir a mi dentista de siempre?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>Adeslas Dental Max funciona a través de su red de clínicas propias y concertadas, con más de 1.600 odontólogos en toda España. Puedes consultar qué clínicas están cerca de tu domicilio y elegir la que más te convenga.</p></div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Qué tratamientos están realmente incluidos?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>Dental Max incluye 49 tratamientos sin coste adicional, que abarcan diagnóstico (estudios radiológicos 3D, TAC), prevención (limpiezas, fluorizaciones, revisión anual), cirugía (extracciones), odontopediatría y urgencias. El resto de actos tienen precios reducidos.</p></div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Hay límite de edad para contratar?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>No. Adeslas Dental Max no tiene edad máxima de contratación. Tampoco se requiere cuestionario de salud, por lo que no importa tu historial médico dental previo.</p></div>
+                </div>
+                <div class="faq-item reveal reveal-delay-4">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Cómo funciona la contratación?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>La contratación es completamente online en pocos minutos. No hay papeleo físico, no hay preguntas médicas y no hay esperas. Recibirás tu documentación por email y podrás usar el seguro desde el primer día.</p></div>
+                </div>
+                <div class="faq-item reveal reveal-delay-5">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Puedo asegurar a toda mi familia?</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-item__answer"><p>Sí. El precio es de 10 €/mes por persona para 1 o 2 asegurados, y a partir del tercer asegurado baja a 5 €/mes por persona. Cuantos más miembros de la familia aseguréis, más ahorráis.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="presupuesto">
+        <div class="container">
+            <div class="final-cta__inner reveal">
+                <h2>Empieza a cuidar tu sonrisa hoy</h2>
+                <p>Únete a las más de 50.000 familias que ya confían en Adeslas Dental Max. Presupuesto personalizado en segundos, sin compromiso.</p>
+                <form class="final-cta__form" id="ctaForm" novalidate>
+                    <div class="final-cta__form-row">
+                        <input type="email" name="cta-email" placeholder="Tu email" required>
+                        <input type="tel" name="cta-phone" placeholder="Tu teléfono" required pattern="[0-9]{9}">
+                    </div>
+                    <label class="consent-checkbox" style="text-align:left;color:rgba(255,255,255,0.5);">
+                        <input type="checkbox" required style="width:16px;height:16px;accent-color:var(--color-primary);">
+                        <span>Acepto la <a href="legal/privacidad.html" target="_blank" style="color:var(--color-teal);">Política de Privacidad</a>.</span>
+                    </label>
+                    <button type="submit" class="btn btn--primary btn--block">Recibir presupuesto →</button>
+                </form>
+                <div class="final-cta__trust">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Datos protegidos</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sin compromiso</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg> Respuesta en minutos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación y obtener datos estadísticos anónimos. Puedes aceptarlas todas, configurarlas o rechazarlas. Más información en nuestra <a href="legal/cookies.html" target="_blank">Política de Cookies</a>.</p>
+        <div class="cookie-banner__actions">
+            <button class="cookie-btn cookie-btn--settings" id="cookieReject">Rechazar</button>
+            <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Aceptar todas</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <div class="logo-icon" style="width:28px;height:28px;font-size:14px;">A</div>
+                    <span class="footer__brand-text">Adeslas Dental Max</span>
+                </div>
+                <div class="footer__links">
+                    <a href="legal/aviso-legal.html" target="_blank">Aviso Legal</a>
+                    <a href="legal/privacidad.html" target="_blank">Política de Privacidad</a>
+                    <a href="legal/cookies.html" target="_blank">Política de Cookies</a>
+                    <a href="tel:900000000">900 000 000</a>
+                </div>
+                <span class="footer__copy">© 2026 Adeslas Dental Max. Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34900000000" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="whatsapp-tooltip">¿Hablamos?</span>
+    </a>
+    <script>
+        (function() {
+            'use strict';
+
+            /* ============================================
+               CONFIG: Cambia esta URL por tu endpoint real
+               ============================================ */
+            const API_ENDPOINT = null; // Ej: 'https://tu-dominio.com/api/leads'
+
+            /* ============================================
+               SCROLL REVEAL
+               ============================================ */
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            /* ============================================
+               COUNTER ANIMATION
+               ============================================ */
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count, 10);
+                    if (!target) return;
+                    const step = Math.max(1, Math.floor(target / 60));
+                    let current = 0;
+                    const increment = () => {
+                        current += step;
+                        if (current >= target) { el.textContent = target.toLocaleString(); return; }
+                        el.textContent = current.toLocaleString();
+                        requestAnimationFrame(() => setTimeout(increment, 33));
+                    };
+                    increment();
+                    counterObserver.unobserve(el);
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+            /* ============================================
+               PRICE CALCULATOR
+               ============================================ */
+            const familySelect = document.getElementById('family-size');
+            const priceCalculator = document.getElementById('priceCalculator');
+            const pricePerPerson = document.getElementById('pricePerPerson');
+            const priceCount = document.getElementById('priceCount');
+            const priceTotal = document.getElementById('priceTotal');
+            const priceSaving = document.getElementById('priceSaving');
+            const savingAmount = document.getElementById('savingAmount');
+
+            function calculatePrice(size) {
+                const n = parseInt(size, 10);
+                if (!n || n < 1) { priceCalculator.classList.remove('visible'); return; }
+                let total = 0, perPerson = 0;
+                if (n <= 2) { total = n * 10; perPerson = 10; }
+                else { total = 20 + (n - 2) * 5; perPerson = total / n; }
+                pricePerPerson.textContent = perPerson.toFixed(2).replace('.', ',') + ' €';
+                priceCount.textContent = n + ' ' + (n === 1 ? 'persona' : 'personas');
+                priceTotal.textContent = total + ' €';
+                if (n >= 3) {
+                    savingAmount.textContent = (n * 10) - total;
+                    priceSaving.style.display = 'flex';
+                } else { priceSaving.style.display = 'none'; }
+                priceCalculator.classList.add('visible');
+            }
+            familySelect.addEventListener('change', function() { calculatePrice(this.value); });
+
+            /* ============================================
+               MULTI-STEP FORM
+               ============================================ */
+            const form = document.getElementById('leadForm');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step1Next = document.getElementById('step1Next');
+            const step2Back = document.getElementById('step2Back');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const progressStep1 = document.getElementById('progressStep1');
+            const progressStep2 = document.getElementById('progressStep2');
+            const progressLine1 = document.getElementById('progressLine1');
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const nameFeedback = document.getElementById('nameFeedback');
+            const emailFeedback = document.getElementById('emailFeedback');
+            const phoneFeedback = document.getElementById('phoneFeedback');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            function clearError(input, feedback) {
+                input.classList.remove('error'); feedback.classList.remove('visible');
+            }
+            nameInput.addEventListener('input', () => clearError(nameInput, nameFeedback));
+            emailInput.addEventListener('input', () => { clearError(emailInput, emailFeedback); emailInput.setCustomValidity(''); });
+            phoneInput.addEventListener('input', () => clearError(phoneInput, phoneFeedback));
+            familySelect.addEventListener('change', function() { this.classList.remove('error'); });
+
+            function goToStep2() {
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                let valid = true;
+                if (name.length < 2) { nameInput.classList.add('error'); nameFeedback.classList.add('visible'); valid = false; }
+                if (!emailRegex.test(email)) { emailInput.classList.add('error'); emailFeedback.classList.add('visible'); if (email) emailInput.setCustomValidity(''); valid = false; }
+                if (!valid) return;
+                step1.classList.add('form-step--hidden');
+                step2.classList.remove('form-step--hidden');
+                progressStep1.classList.remove('active');
+                progressStep1.classList.add('completed');
+                progressLine1.classList.add('completed');
+                progressStep2.classList.add('active');
+            }
+            step1Next.addEventListener('click', goToStep2);
+            nameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); goToStep2(); } });
+            emailInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); goToStep2(); } });
+            step2Back.addEventListener('click', function() {
+                step2.classList.add('form-step--hidden');
+                step1.classList.remove('form-step--hidden');
+                progressStep2.classList.remove('active');
+                progressLine1.classList.remove('completed');
+                progressStep1.classList.remove('completed');
+                progressStep1.classList.add('active');
+            });
+
+            /* ============================================
+               FORM SUBMISSION (API-ready + Mock)
+               ============================================ */
+            async function submitToAPI(data) {
+                if (!API_ENDPOINT) return false;
+                try {
+                    const response = await fetch(API_ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    return response.ok;
+                } catch (err) {
+                    console.warn('[Adeslas] API error, mock fallback:', err.message);
+                    return false;
+                }
+            }
+
+            function getFormData() {
+                return {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    phone: phoneInput.value.trim(),
+                    familySize: familySelect.value,
+                    price: priceCalculator.classList.contains('visible') ? priceTotal.textContent : null,
+                    timestamp: new Date().toISOString(),
+                    source: 'landing-dental-max'
+                };
+            }
+
+            /* ============================================
+               CTA FORM (bottom)
+               ============================================ */
+            const ctaForm = document.getElementById('ctaForm');
+            if (ctaForm) {
+                ctaForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = ctaForm.querySelector('[name="cta-email"]').value.trim();
+                    const phone = ctaForm.querySelector('[name="cta-phone"]').value.trim();
+                    if (!emailRegex.test(email) || !/^[0-9]{9}$/.test(phone)) { alert('Revisa tu email y teléfono.'); return; }
+                    const data = { name: '', email, phone, familySize: '', price: null, timestamp: new Date().toISOString(), source: 'landing-dental-max-cta-final' };
+                    await submitToAPI(data);
+                    console.log('[Adeslas] CTA lead:', data);
+                    ctaForm.innerHTML = '<div style="color:var(--color-teal);font-weight:600;font-size:17px;padding:12px 0;">¡Recibido! Te enviamos el presupuesto en minutos.</div>';
+                });
+            }
+
+            /* ============================================
+               FAQ ACCORDION
+               ============================================ */
+            document.querySelectorAll('.faq-item__question').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const isOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item.open').forEach(el => {
+                        if (el !== item) { el.classList.remove('open'); el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false'); }
+                    });
+                    item.classList.toggle('open');
+                    this.setAttribute('aria-expanded', String(!isOpen));
+                });
+            });
+
+            /* ============================================
+               COOKIE BANNER
+               ============================================ */
+            const cookieBanner = document.getElementById('cookieBanner');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieReject = document.getElementById('cookieReject');
+
+            if (!localStorage.getItem('cookie_consent')) {
+                cookieBanner.classList.add('visible');
+            }
+
+            function setCookieConsent(value) {
+                localStorage.setItem('cookie_consent', value);
+                cookieBanner.classList.remove('visible');
+            }
+
+            cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
+            cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
+
+            /* ============================================
+               CONSENT CHECKBOX VALIDATION
+               ============================================ */
+            const consentCheck = document.getElementById('consentCheck');
+            const consentWrapper = document.getElementById('consentWrapper');
+
+            function validateConsent() {
+                if (!consentCheck.checked) {
+                    consentWrapper.classList.add('error');
+                    return false;
+                }
+                consentWrapper.classList.remove('error');
+                return true;
+            }
+
+            consentCheck.addEventListener('change', function() {
+                if (this.checked) consentWrapper.classList.remove('error');
+            });
+
+            /* Lead form submit with consent validation */
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const phone = phoneInput.value.trim();
+                if (!/^[0-9]{9}$/.test(phone)) { phoneInput.classList.add('error'); phoneFeedback.classList.add('visible'); phoneInput.focus(); return; }
+                if (!familySelect.value) { familySelect.classList.add('error'); familySelect.focus(); return; }
+                if (!validateConsent()) { return; }
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+                const data = getFormData();
+                const apiSuccess = await submitToAPI(data);
+                console.log('[Adeslas] Lead:', data, apiSuccess ? '(API)' : '(mock)');
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                form.classList.add('hidden');
+                successMsg.classList.add('visible');
+            });
+
+            /* ============================================
+               SMOOTH SCROLL
+               ============================================ */
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                });
+            });
+        })();
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons()</script>
+</body>
+</html>
